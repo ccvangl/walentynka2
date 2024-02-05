@@ -1,0 +1,78 @@
+body {
+    font-family: pixelify sans;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* Zmiana kierunku flexboxa na kolumnę */
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.5s ease;
+   
+    /* Dodaj płynną animację zmiany koloru tła dla całej strony */
+  }
+a{text-decoration: none;}
+  .napis {
+    font-size: 40px;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .interactiveField {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 200px;
+    font-size: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s, height 0.3s, transform 0.3s, color 0.5s, background-color 0.5s;
+    /* Dodaj płynne przejścia dla animacji */
+    box-shadow: 3px 3px 6px #ffffff;
+    border: 2px solid rgb(255, 255, 255);
+    
+  }
+
+  #pinkField {
+    background-color: pink;
+    color: white;
+    
+  }
+
+  #blackField {
+    background-color: black;
+    color: white;
+  }
+
+  img {
+    margin-top: 20px;
+    /* Dodaj odstęp od góry dla obrazka */
+    max-width: 100%;
+    /* Maksymalna szerokość obrazka */
+    height: auto;
+    /* Automatyczna wysokość obrazka */
+    padding: 10px;
+    margin: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    /* Zwiększ rozmiar tekstu w paragrafie */
+    box-shadow: 0 20px 20px -5px #ffffff;
+    margin: 0;
+    padding: 0;
+    border-radius: 20px;
+  }

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Fields</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: pixelify sans;
+      background-color: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      /* Zmiana kierunku flexboxa na kolumnę */
+      height: 100vh;
+      margin: 0;
+      transition: background-color 0.5s ease;
+     
+      /* Dodaj płynną animację zmiany koloru tła dla całej strony */
+    }
+a{text-decoration: none;}
+    .napis {
+      font-size: 40px;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .interactiveField {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 200px;
+      font-size: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: width 0.3s, height 0.3s, transform 0.3s, color 0.5s, background-color 0.5s;
+      /* Dodaj płynne przejścia dla animacji */
+      box-shadow: 3px 3px 6px #ffffff;
+      border: 2px solid rgb(255, 255, 255);
+      
+    }
+
+    #pinkField {
+      background-color: pink;
+      color: white;
+      
+    }
+
+    #blackField {
+      background-color: black;
+      color: white;
+    }
+
+    img {
+      margin-top: 20px;
+      /* Dodaj odstęp od góry dla obrazka */
+      max-width: 100%;
+      /* Maksymalna szerokość obrazka */
+      height: auto;
+      /* Automatyczna wysokość obrazka */
+      padding: 10px;
+      margin: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      /* Zwiększ rozmiar tekstu w paragrafie */
+      box-shadow: 0 20px 20px -5px #ffffff;
+      margin: 0;
+      padding: 0;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="https://www.gify.net/data/media/327/krolik-ruchomy-obrazek-0548.gif" alt="">
+  <p class="napis">Będziesz moja walentynka?</p>
+
+  <div class="container">
+    <a href="wal2.html">
+      <div id="pinkField" class="interactiveField" onclick="klikroz()">❤ TAK ❤</div>
+    </a>
+    <div id="blackField" class="interactiveField" onclick="adjustFields()">💔 NIE 💔</div>
+  </div>
+
+  <script>
+    function klikroz() {
+      var body = document.body;
+      var pinkField = document.getElementById('pinkField');
+
+      // Zmiana płynna koloru tła całej strony na jasny różowy
+      body.style.backgroundColor = 'lightpink';
+
+      // Zmiana płynna koloru tła i tekstu pola różowego na błękitny
+      pinkField.style.backgroundColor = 'lightblue';
+      pinkField.style.color = 'blue';
+    }
+
+    function adjustFields() {
+      // Zwiększ rozmiar różowego pola o 15px
+      var pinkField = document.getElementById('pinkField');
+      var currentWidth = parseInt(window.getComputedStyle(pinkField).width);
+      var currentHeight = parseInt(window.getComputedStyle(pinkField).height);
+      pinkField.style.width = (currentWidth + 15) + "px";
+      pinkField.style.height = (currentHeight + 15) + "px";
+
+      // Zmniejsz rozmiar czarnego pola o 15px
+      var blackField = document.getElementById('blackField');
+      var currentBlackWidth = parseInt(window.getComputedStyle(blackField).width);
+      var currentBlackHeight = parseInt(window.getComputedStyle(blackField).height);
+      blackField.style.width = (currentBlackWidth - 15) + "px";
+      blackField.style.height = (currentBlackHeight - 15) + "px";
+
+      // Sprawdź, czy czarne pole osiągnęło rozmiar 100px i usuń je, jeśli tak
+      if (currentBlackWidth <= 100 || currentBlackHeight <= 100) {
+        blackField.style.display = 'none';
+      }
+
+      // Zmiana pozycji czarnego pola w obrębie 250px
+      var newPositionX = Math.random() * 250;
+      var newPositionY = Math.random() * 250;
+      blackField.style.transform = "translate(" + newPositionX + "px," + newPositionY + "px)";
+    }
+  </script>
+</body>
+
+</html>
